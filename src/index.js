@@ -17,6 +17,9 @@ io.on('connection',(socket)=>{
     socket.on('sendMessage',(data)=>{
         io.emit('message',data);
     })
+    socket.on('sendLocation',(data)=>{
+        io.emit('message',data)
+    })
 });
 
 
