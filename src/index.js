@@ -12,8 +12,11 @@ const io = socket(server);
 
 
 io.on('connection',(socket)=>{
-    console.log("New Connection added",socket);
-    socket.emit('newConnection','Welcome Babes!!');
+    console.log("New Connection added");
+    socket.emit('message','Welcome Babes!!');
+    socket.on('sendMessage',(data)=>{
+        io.emit('message',data);
+    })
 });
 
 
