@@ -11,7 +11,10 @@ const io = socket(server);
 
 
 
-io.on('connection',()=>console.log("New Connection added"));
+io.on('connection',(socket)=>{
+    console.log("New Connection added",socket);
+    socket.emit('newConnection','Welcome Babes!!');
+});
 
 
 
