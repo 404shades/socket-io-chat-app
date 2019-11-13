@@ -14,11 +14,13 @@ const io = socket(server);
 io.on('connection',(socket)=>{
     console.log("New Connection added");
     socket.emit('message','Welcome Babes!!');
-    socket.on('sendMessage',(data)=>{
+    socket.on('sendMessage',(data,callback)=>{
         io.emit('message',data);
+        callback();
     })
-    socket.on('sendLocation',(data)=>{
-        io.emit('message',data)
+    socket.on('sendLocation',(data,callback)=>{
+        io.emit('message',data);
+        callback();
     })
 });
 
